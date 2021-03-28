@@ -1,13 +1,91 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  font-family: "Helvetica", "Arial", "LiHei Pro", "黑體-繁", "微軟正黑體",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  list-style-type: none;
+}
+
+#navbar {
+  height: 5rem;
+  width: 100%;
+  background-color: rgb(32, 34, 37);
+  position: fixed;
+  z-index: 2;
+}
+#title {
+  position: relative;
+  margin: 1.5rem 2rem;
+  color: white;
+}
+#form {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+button {
+  padding: 0.2rem 0.5rem;
+  background-color: rgb(117, 138, 212);
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+select {
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+}
+.scenelist {
+  padding: 6rem 1rem;
+  display: grid;
+  gap: 2rem;
+  background-color: rgb(47, 49, 54);
+}
+
+@media screen and (min-width: 768px) {
+  .scenelist {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.scene {
+  position: relative;
+  background: rgb(55, 57, 62);
+  height: 12rem;
+  border: 2px solid rgb(100, 100, 100);
+  border-radius: 1rem;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: white;
+  margin: 3rem 2rem 0rem;
+  max-height: 1.5rem;
+}
+hr {
+  margin-right: 2rem;
+  height: 3px;
+  border: none;
+  background-color: rgb(117, 138, 212);
+}
+.description {
+  bottom: 1.2rem;
+  height: 45%;
+  margin: 1rem 2rem;
+  color: white;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.description::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+#loading {
+  color: white;
+  font-size: 4rem;
 }

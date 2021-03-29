@@ -46,21 +46,24 @@ export const reducer = (state, action) => {
     }
     case "INI_FETCH": {
       window.scrollTo(0, 0);
+      console.log("INI_FETCH");
       return {
         ...state,
-        scenes: action.payload,
+        scenes: action.newScenes,
         isLoading: false,
       };
     }
     case "CON_FETCH": {
+      console.log("CON_FETCH");
       return {
         ...state,
-        scenes: state.scenes.concat(action.payload),
+        scenes: state.scenes.concat(action.newScenes),
         isLoading: false,
       };
     }
     case "ERR_FETCH": {
-      return { ...state, isError: true };
+      console.log("ERR_FETCH");
+      return { ...state, isLoading: false, isError: action.statusText };
     }
     default: {
       throw new Error("Unhandled action type");

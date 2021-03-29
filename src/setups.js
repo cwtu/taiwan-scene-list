@@ -45,6 +45,7 @@ export const reducer = (state, action) => {
       return { ...state, isError: false, isLoading: true };
     }
     case "INI_FETCH": {
+      window.scrollTo(0, 0);
       return {
         ...state,
         scenes: action.payload,

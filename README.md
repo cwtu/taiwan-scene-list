@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Taiwan Scene Searchup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can view the site [here](https://cwtu.github.io/taiwan-scene-searchup)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This is a website for browsing scene spots in Taiwan. Users can filter scene spots by cities.
+All of the information are fetched from [this API](https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot). API details are provided in [MOTC Transport API V2](https://ptx.transportdata.tw/MOTC?t=Tourism&v=2#!/Tourism/TourismApi_ScenicSpot) under Tourism/ScenicSpot and Tourism/scenicSpot/{City}.
+This webpage uses ReactJS and Create React App. Main files are listed under src folder.
 
-### `npm start`
+## Structures
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The components are: <br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- App
+- Navbar
+- Scenelist
+- Scene
 
-### `npm test`
+App:<br>
+The App component holds the entire functionallity of the app. It has Navbar and Scenelist. App also host the request state, which holds the city city name the user want to filter by when browsing. It passes setRequest function down to Navbar for it to handle the changes and passes request down to Scenelist for it to display proper scenes from the chosen city.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navbar:<br>
+The Navbar component handles the request from users. Users can pick a city from select or choose show all, and Navbar will update the request state.
 
-### `npm run build`
+Scenelist:<br>
+The Scenelist component consists of a list of scenes filtered by the requested city. It fetches data from the API as JSON and store the scenes into a list. Then it uses map function to create Scene components with scene information as props. Once the request state is updated, Scenelist is rerendered and display a new list of scenes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Scene:<br>
+The Scene component is responsible for displaying the name and discription of a scene spot.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This website is built for Dcard summer 2021 internship application. Requirements are described [here](https://drive.google.com/file/d/14wpY_xmY1VxlwJQNr1WKE872UdWZ6ft6/view).

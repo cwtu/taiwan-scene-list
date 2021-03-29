@@ -1,6 +1,6 @@
 # Taiwan Scene Searchup
 
-You can view the site [here](https://cwtu.github.io/taiwan-scene-searchup)
+You can view the site [here](https://cwtu.github.io/taiwan-scene-list)
 
 ## Description
 

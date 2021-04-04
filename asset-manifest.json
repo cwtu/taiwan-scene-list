@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/taiwan-scene-list/static/css/main.5cecfb97.chunk.css",
-    "main.js": "/taiwan-scene-list/static/js/main.52fdc80f.chunk.js",
-    "main.js.map": "/taiwan-scene-list/static/js/main.52fdc80f.chunk.js.map",
+    "main.js": "/taiwan-scene-list/static/js/main.0e9fabe8.chunk.js",
+    "main.js.map": "/taiwan-scene-list/static/js/main.0e9fabe8.chunk.js.map",
     "runtime-main.js": "/taiwan-scene-list/static/js/runtime-main.52fb1927.js",
     "runtime-main.js.map": "/taiwan-scene-list/static/js/runtime-main.52fb1927.js.map",
-    "static/js/2.320503dd.chunk.js": "/taiwan-scene-list/static/js/2.320503dd.chunk.js",
-    "static/js/2.320503dd.chunk.js.map": "/taiwan-scene-list/static/js/2.320503dd.chunk.js.map",
+    "static/js/2.171ae076.chunk.js": "/taiwan-scene-list/static/js/2.171ae076.chunk.js",
+    "static/js/2.171ae076.chunk.js.map": "/taiwan-scene-list/static/js/2.171ae076.chunk.js.map",
     "index.html": "/taiwan-scene-list/index.html",
     "static/css/main.5cecfb97.chunk.css.map": "/taiwan-scene-list/static/css/main.5cecfb97.chunk.css.map",
-    "static/js/2.320503dd.chunk.js.LICENSE.txt": "/taiwan-scene-list/static/js/2.320503dd.chunk.js.LICENSE.txt"
+    "static/js/2.171ae076.chunk.js.LICENSE.txt": "/taiwan-scene-list/static/js/2.171ae076.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.52fb1927.js",
-    "static/js/2.320503dd.chunk.js",
+    "static/js/2.171ae076.chunk.js",
     "static/css/main.5cecfb97.chunk.css",
-    "static/js/main.52fdc80f.chunk.js"
+    "static/js/main.0e9fabe8.chunk.js"
   ]
 }

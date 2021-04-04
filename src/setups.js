@@ -25,6 +25,7 @@ export const cities = [
   ["連江縣", "LienchiangCounty"],
 ];
 
+// generate appropriate urls for the API
 export function getUrl(city = null, skip = 0) {
   var url = "https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot";
 
@@ -39,22 +40,24 @@ export function getUrl(city = null, skip = 0) {
 
   return url;
 }
+
+// update state fields according to the actions
 export const reducer = (state, action) => {
   switch (action.type) {
     case "PREP_FETCH": {
       return { ...state, isError: false, isLoading: true };
     }
+    // display new scene list at initial call
     case "INI_FETCH": {
       window.scrollTo(0, 0);
-      console.log("INI_FETCH");
       return {
         ...state,
         scenes: action.newScenes,
         isLoading: false,
       };
     }
+    // concat scenes after the initial call
     case "CON_FETCH": {
-      console.log("CON_FETCH");
       return {
         ...state,
         scenes: state.scenes.concat(action.newScenes),
@@ -62,7 +65,6 @@ export const reducer = (state, action) => {
       };
     }
     case "ERR_FETCH": {
-      console.log("ERR_FETCH");
       return { ...state, isLoading: false, isError: action.statusText };
     }
     default: {

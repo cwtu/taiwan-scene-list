@@ -1,7 +1,7 @@
 import { memo } from "react";
 
+// only render new scenes
 const Scene = memo(({ Name, Description, DescriptionDetail, Picture }) => {
-  console.log("load scene");
   if (!Description) Description = DescriptionDetail;
 
   return (

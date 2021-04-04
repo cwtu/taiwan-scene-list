@@ -14,14 +14,13 @@ const App = () => {
 };
 
 const Navbar = ({ setRequest }) => {
-  console.log("Navbar");
   return (
     <div id="navbar">
       <h1 id="title">臺灣景點瀏覽</h1>
       <section id="form">
         <button
           onClick={() => {
-            setRequest((prevRequest) => "");
+            setRequest("");
             document.getElementById("cities").value = "選擇城市";
           }}
         >
@@ -32,7 +31,7 @@ const Navbar = ({ setRequest }) => {
           defaultValue="選擇城市"
           onChange={() => {
             const select = document.getElementById("cities");
-            setRequest((prevRequest) => select.value);
+            setRequest(select.value);
           }}
         >
           <option key="default" disabled>
@@ -42,7 +41,7 @@ const Navbar = ({ setRequest }) => {
             <option
               key={city[1]}
               value={city[1]}
-              onClick={() => setRequest((prevRequest) => city[1])}
+              onClick={() => setRequest(city[1])}
             >
               {city[0]}
             </option>
@@ -62,16 +61,12 @@ const initialState = {
 const Scenelist = ({ request }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log("Scenelist");
-  // console.log(scenes);
-
   useEffect(() => {
     var skipCount = 0;
     const fetchScenes = async (request) => {
+      window.removeEventListener("scroll", scrollHandler); // prevent another fetch when loading
       dispatch({ type: "PREP_FETCH" });
-      window.removeEventListener("scroll", scrollHandler); // prevent repeated fetch request
 
-      console.log(request, skipCount);
       const response = await fetch(getUrl(request, skipCount));
       const newScenes = await response.json();
 
@@ -81,7 +76,7 @@ const Scenelist = ({ request }) => {
           : dispatch({ type: "INI_FETCH", newScenes: newScenes });
 
         if (newScenes.length === loadSceneNum)
-          window.addEventListener("scroll", scrollHandler); // add listener back only when there are more to fetch
+          window.addEventListener("scroll", scrollHandler); // add listener back only when there are more data to fetch
 
         skipCount += loadSceneNum;
       } else {
@@ -89,6 +84,7 @@ const Scenelist = ({ request }) => {
       }
     };
 
+    // fetch more when scroll to bottom
     const scrollHandler = () => {
       if (
         Math.round(window.innerHeight + window.scrollY) >=
@@ -98,11 +94,10 @@ const Scenelist = ({ request }) => {
       }
     };
 
-    fetchScenes(request);
     window.addEventListener("scroll", scrollHandler);
+    fetchScenes(request); // first fetch
     return () => {
-      console.log("cleanup");
-      window.removeEventListener("scroll", scrollHandler);
+      window.removeEventListener("scroll", scrollHandler); // cleanup
     };
   }, [request]);
 
